@@ -1,0 +1,13 @@
+SAMPLE DATA. This is sample policy text created for learning and demo use. It is not real bank data and it is not Citi data.
+
+Dispute and Fraud Policy
+
+If a customer does not know a charge on the card, the agent should treat it as a possible fraud case. The agent should block the card at once if the customer confirms the charge is not theirs.
+
+A customer can raise a dispute within 60 days from the statement date of the charge. The agent should note the date, the amount, and the merchant name for every dispute.
+
+After a dispute is raised, the bank will check the case and may give a temporary credit within 10 business days. The final answer is shared within 45 days in most cases.
+
+If the charge is a known charge but the product was not received, it is not fraud. The agent should raise it as a service dispute and ask the customer for proof of purchase or delivery messages.
+
+The agent should never ask the customer to share the full card number, PIN, or one time password on a call or in chat. The agent should only ask for the last four digits of the card.
