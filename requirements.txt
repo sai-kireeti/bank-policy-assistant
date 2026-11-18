@@ -1,0 +1,6 @@
+# No packages are needed to run this project.
+# It uses only the Python standard library (Python 3.10 or newer).
+# Optional, only if you extend the project later:
+# flask
+# anthropic
+# openai
