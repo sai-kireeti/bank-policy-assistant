@@ -1,0 +1,13 @@
+SAMPLE DATA. This is sample policy text created for learning and demo use. It is not real bank data and it is not Citi data.
+
+Account Opening Policy
+
+To open a new account, a customer must be 18 years or older. The customer must share a valid photo ID, such as a passport or a driving license.
+
+The customer must also share proof of address, such as a utility bill or a bank statement from the last 90 days. The name on the ID and the name on the proof of address should match.
+
+The first deposit can be made by debit card, by bank transfer, or by check. There is no minimum first deposit for a basic checking account in this sample policy.
+
+If a document is not clear or is expired, the agent should ask the customer to share a new copy. The agent should not open the account until all documents are clear and valid.
+
+After the account is open, the customer gets a welcome email within one business day. The debit card is sent by mail and should arrive in 5 to 7 business days.
