@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Policy Assistant</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f4f6f8; color: #1a1a1a; }
+  .wrap { max-width: 760px; margin: 40px auto; padding: 0 16px; }
+  .card { background: #ffffff; border: 1px solid #d9dee3; border-radius: 12px; padding: 24px; }
+  h1 { font-size: 24px; margin: 0 0 8px; }
+  p.sub { color: #444; margin: 0 0 20px; line-height: 1.5; }
+  label { display: block; font-weight: bold; margin-bottom: 8px; }
+  textarea { width: 100%; min-height: 90px; padding: 12px; border: 1px solid #b8c0c8; border-radius: 8px; font-size: 16px; }
+  button { margin-top: 12px; background: #0b4f8a; color: #fff; border: 0; border-radius: 8px; padding: 12px 20px; font-size: 16px; cursor: pointer; }
+  button:hover { background: #093f6e; }
+  .examples { margin-top: 16px; color: #444; font-size: 14px; line-height: 1.6; }
+  .examples a { color: #0b4f8a; cursor: pointer; text-decoration: underline; }
+  #result { margin-top: 20px; display: none; background: #eef4fa; border: 1px solid #c9d9ea; border-radius: 8px; padding: 16px; }
+  #answer { line-height: 1.6; white-space: pre-wrap; }
+  #source { margin-top: 10px; color: #333; font-size: 14px; }
+  .note { margin-top: 16px; font-size: 13px; color: #666; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Bank Policy Assistant</h1>
+    <p class="sub">Ask a question in plain words. The app searches sample policy files and shows a clear answer with its source.</p>
+
+    <label for="question">Your question</label>
+    <textarea id="question" placeholder="Example: What happens if a customer does not know a charge on the card?"></textarea>
+    <button id="askBtn" type="button">Ask</button>
+
+    <div class="examples">
+      Try:
+      <a data-q="What happens if a customer does not know a charge on the card?">unknown charge</a>,
+      <a data-q="How long does a customer have to raise a dispute?">dispute time limit</a>,
+      <a data-q="What documents are needed to open a new account?">open an account</a>,
+      <a data-q="What happens if a customer misses a card payment?">missed payment</a>
+    </div>
+
+    <div id="result">
+      <div id="answer"></div>
+      <div id="source"></div>
+    </div>
+
+    <p class="note">Demo only. All policy files in this project are sample data created for learning. They are not real bank data.</p>
+  </div>
+</div>
+<script>
+  var btn = document.getElementById('askBtn');
+  var box = document.getElementById('question');
+  var result = document.getElementById('result');
+  var answerEl = document.getElementById('answer');
+  var sourceEl = document.getElementById('source');
+
+  function ask() {
+    var q = box.value.trim();
+    answerEl.textContent = 'Searching...';
+    sourceEl.textContent = '';
+    result.style.display = 'block';
+    fetch('/api/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q })
+    }).then(function (r) { return r.json(); }).then(function (data) {
+      answerEl.textContent = data.answer || 'No answer found.';
+      sourceEl.textContent = data.source ? ('Source: ' + data.source) : '';
+    }).catch(function () {
+      answerEl.textContent = 'The server is not running. Start it with: python3 app.py';
+      sourceEl.textContent = '';
+    });
+  }
+
+  btn.addEventListener('click', ask);
+  box.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) ask();
+  });
+  document.querySelectorAll('[data-q]').forEach(function (el) {
+    el.addEventListener('click', function () { box.value = el.getAttribute('data-q'); ask(); });
+  });
+</script>
+</body>
+</html>
