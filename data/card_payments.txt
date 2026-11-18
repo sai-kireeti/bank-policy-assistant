@@ -1,0 +1,13 @@
+SAMPLE DATA. This is sample policy text created for learning and demo use. It is not real bank data and it is not Citi data.
+
+Card Payments Policy
+
+A card payment is due on the due date shown on the statement. If the due date falls on a weekend or a holiday, the payment is still counted as on time if it is received on the next business day.
+
+The minimum payment is the smaller amount of the full balance or the sum of interest, fees, and one percent of the balance. If a customer pays less than the minimum payment, a late fee may be charged.
+
+If a customer misses a payment, the agent should first check the last statement date and the last payment date. The agent should then explain the late fee in simple words and share the next due date.
+
+A customer can make a payment by phone, by mobile app, by online banking, or by mail. Online and mobile payments made before 8 pm Eastern Time are posted on the same day.
+
+If a payment is returned because of low funds in the paying account, a returned payment fee may be charged. The agent should ask the customer to check the paying account before making a new payment.
